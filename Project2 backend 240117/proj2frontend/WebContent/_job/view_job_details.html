@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+
+	<div class="generic-container" ng-controller="JobController as ctrl">
+		<br>
+		<br>
+		<br>
+
+		<h3>List of Vacancies</h3>
+		<p>
+			Search Category:<input type="text" size="40" ng-model="sear_text" />
+		</p>
+
+		<div class="panel-body">
+			<div ng-repeat="job in ctrl.jobs | filter:sear_text">
+				<div class="panel panel-success">
+
+					<div class="panel-heading">
+
+						<h3 class="panel-title" style="font-weight: bold;">
+							<b>{{job.title}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+								style="color: orange;">{{job.qualification}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h3>
+					</div>
+
+					<b style="color: #7f8496;">Job Description </b><br>{{job.description}}<br />
+					<br /> <b style="color: #7f8496;">Job Qualification </b><br>{{job.qualification}}<br />
+					<br />
+
+					<button ng-hide="currentUser.id==undefined" class="pull-center"
+						style="font-weight: bold;" ng-click="ctrl.applyForJob(job.id)"></button>
+					<span class="glyphicon glyphicon-bookmark">Apply</span>
+				</div>
+
+
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

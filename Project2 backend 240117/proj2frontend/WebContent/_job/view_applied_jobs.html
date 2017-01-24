@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+
+	<div class="generic-container" ng-controller="JobController as ctrl">
+
+		<br>
+		<br>
+		<br>
+
+
+		<h3>List of Applied</h3>
+
+		<p>
+
+			Search Job:<input type="text" size="40" ng-model="sear_text" />
+
+		</p>
+		<br />
+
+
+		<table class="table table-striped" style="width: 90%">
+			<tr style="font-weight: bold;">
+				<td style="width: 10%">ID#</td>
+				<td style="width: 10%">JOB ID</td>
+				<td style="width: 10%">USER ID</td>
+				<td style="width: 10%">STATUS</td>
+				<td style="width: 10%">REMARK</td>
+				<td style="width: 10%">DATE APPLIED</td>
+			<tr ng-repeat="job in ctrl.jobapplications | filter:sear_text">
+				<td style="width: 10%;">{{job.id}}</td>
+				<td style="width: 10%;">{{job.job_id}}</td>
+				<td style="width: 10%;">{{job.user_id}}</td>
+				<td style="width: 10%;">{{job.status}}</td>
+				<td style="width: 10%;">{{job.remark}}</td>
+				<td style="width: 10%;">{{job.date_applied}}</td>
+
+
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>
